@@ -11,8 +11,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { DatePicker } from "./DatePicker";
+import { infoType } from "@/App";
 
-function Form() {
+type FormProps = {
+  info:infoType,
+  setInfo: React.Dispatch<React.SetStateAction<infoType>>;
+}
+
+
+
+function Form({ info , setInfo}: FormProps) {
   return (
     <Card className="w-1/2 max-w-lg dark">
       <CardHeader>
@@ -25,14 +33,14 @@ function Form() {
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="fullname">Full Name</Label>
-              <Input id="fullname" placeholder="enter your fullName" />
+              <Input id="fullname" placeholder="Enter Your FullName" value={info.fullName}/>
             </div>
           </div>
 
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="skills">Skills</Label>
-              <Input id="skills" placeholder="put your skills" />
+              <Input id="skills" placeholder="put Your Skills" value={info.skills} />
             </div>
           </div>
 

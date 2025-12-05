@@ -28,7 +28,15 @@ export function DatePicker() {
           {date ? format(date, "PPP") : <span>Register date</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 bg-stone-200 ">
+      <PopoverContent className="w-auto p-0 bg-stone-200 
+    [&_.rdp-day]:text-stone-100
+    [&_.rdp-day_today]:text-stone-100
+    [&_.rdp-day_selected]:bg-stone-600
+    [&_.rdp-day_selected]:text-white 
+    [&_.rdp-day]:mr-0.5
+    [&_.rdp-nav_button]:bg-stone-100 
+    [&_.rdp-nav_button]:text-white
+   ">
         <Calendar mode="single" selected={date} onSelect={setDate} />
       </PopoverContent>
     </Popover>

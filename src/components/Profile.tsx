@@ -1,10 +1,18 @@
+import { infoType } from "@/App";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export function Profile() {
+type profileProps = {
+  fullName:string
+  url: string | null;
+  
+};
+export function Profile({ url  , fullName }: profileProps ) {
+  const[f , l] = fullName.split(" ").map(i=>i[0])
+  
   return (
     <Avatar className="w-32 h-32">
-      <AvatarImage src="https://github.com/shadcn.png" />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarImage src={url} />
+      <AvatarFallback>{f + l}</AvatarFallback>
     </Avatar>
   );
 }
