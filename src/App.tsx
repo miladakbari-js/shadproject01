@@ -1,12 +1,13 @@
-import { Button } from "./components/ui/button";
-import { Input } from "./components/ui/input";
-
+import Display from "./components/Display";
+import Form from "./components/Form";
 
 function App() {
-  return <div>
-    <Button>Click Me</Button>
-    <Input></Input>
-  </div>;
+  return (
+    <main className="bg-stone-950 flex justify-center items-center h-screen w-screen text-stone-200 gap-4">
+      <Form />
+      <Display />
+    </main>
+  );
 }
 
 export default App;
