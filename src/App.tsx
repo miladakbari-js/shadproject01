@@ -23,7 +23,7 @@ function App() {
 
   return (
     <main className="bg-stone-950 flex justify-center items-center h-screen w-screen text-stone-200 gap-4">
-      <Form info={info} setInfo={setInfo}/>
+      <Form info={info} setInfo={setInfo} />
       <Display info={info} setInfo={setInfo}/>
     </main>
   );

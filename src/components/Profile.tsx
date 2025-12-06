@@ -10,7 +10,7 @@ export function Profile({ url, fullName }: profileProps) {
   return (
     <Avatar className="w-32 h-32">
       <AvatarImage src={url} />
-      <AvatarFallback>{f + l}</AvatarFallback>
+      <AvatarFallback>{fullName ? `${f + l}` : "no Avatar"}</AvatarFallback>
     </Avatar>
   );
 }

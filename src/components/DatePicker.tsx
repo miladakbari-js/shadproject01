@@ -28,7 +28,7 @@ export function DatePicker({ info, setInfo }: FormProps) {
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
     if(diffDays<0){
-      return alert("You can't choose the days ahead! ! ! ")
+      return alert("You can't choose the days ahead ! ! ! ")
     }
 
     setInfo({
