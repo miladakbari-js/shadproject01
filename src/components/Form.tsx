@@ -70,7 +70,7 @@ function Form({ info, setInfo }: FormProps) {
 
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="datepicker">Register Date</Label>
-            <DatePicker />
+            <DatePicker info={info} setInfo={setInfo}/>
           </div>
         </form>
       </CardContent>
