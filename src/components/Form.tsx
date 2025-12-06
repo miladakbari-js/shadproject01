@@ -14,13 +14,20 @@ import { DatePicker } from "./DatePicker";
 import { infoType } from "@/App";
 
 type FormProps = {
-  info:infoType,
+  info: infoType;
   setInfo: React.Dispatch<React.SetStateAction<infoType>>;
-}
+};
 
+function Form({ info, setInfo }: FormProps) {
+ const avatarHandler = ({target})=>{
+  const file = target.files[0];
+  const url = URL.createObjectURL(file);
 
-
-function Form({ info , setInfo}: FormProps) {
+  setInfo({
+    ...info,
+    avatarUrl:url
+  })
+ }
   return (
     <Card className="w-1/2 max-w-lg dark">
       <CardHeader>
@@ -33,34 +40,43 @@ function Form({ info , setInfo}: FormProps) {
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="fullname">Full Name</Label>
-              <Input id="fullname" placeholder="Enter Your FullName" value={info.fullName}/>
+              <Input
+                id="fullname"
+                placeholder="Enter Your FullName"
+                value={info.fullName}
+                onChange={(e) => setInfo({ ...info, fullName: e.target.value })}
+              />
             </div>
           </div>
 
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="skills">Skills</Label>
-              <Input id="skills" placeholder="put Your Skills" value={info.skills} />
+              <Input
+                id="skills"
+                placeholder="put Your Skills"
+                value={info.skills}
+                onChange={(e) => setInfo({ ...info, skills: e.target.value })}
+              />
             </div>
           </div>
 
           <div className="flex flex-col space-y-1.5">
             <div className="grid w-full max-w-sm items-center gap-3">
               <Label htmlFor="avatar">Avatar</Label>
-              <Input id="avatar" type="file" />
+              <Input id="avatar" type="file" onChange={avatarHandler}/>
             </div>
           </div>
 
-
-           <div className="flex flex-col space-y-1.5">
+          <div className="flex flex-col space-y-1.5">
             <Label htmlFor="datepicker">Register Date</Label>
             <DatePicker />
-           </div>
+          </div>
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button className="bg-blend-color-burn">Reset</Button>
-        <Button>Export</Button>
+        <Button className="bg-blend-color-burn text-white">Reset</Button>
+        <Button className="text-white">Export</Button>
       </CardFooter>
     </Card>
   );
